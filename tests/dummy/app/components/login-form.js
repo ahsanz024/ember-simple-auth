@@ -17,6 +17,24 @@ export default Component.extend({
         });
     },
 
+    authenticateWithHydra() {
+      let clientId = 'ember-simple-auth2'; // Put the clientId from Hydra
+      let redirectURI = `${window.location.origin}/callback`;
+      let responseType = `token`; // Update the responseType if needed
+      let grantType = `authorization_code`;
+      let state = `some_long_state`;
+      let scope = `openid`;
+      window.location.replace(`http://localhost:9000/oauth2/auth?` // Hydra server path
+                            + `client_id=${clientId}`
+                            + `&redirect_uri=${redirectURI}`
+                            + `&response_type=${responseType}`
+                            + `&state=${state}`
+                            + `&scope=${scope}`
+                            + `&grant_type=${grantType}`
+      );
+
+    },
+
     authenticateWithFacebook() {
       this.get('session').authenticate('authenticator:torii', 'facebook');
     },

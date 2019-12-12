@@ -3,6 +3,8 @@
 <hr/>
 <a {{action 'authenticateWithGoogleImplicitGrant'}} class="btn btn-primary" href="#" role="button">Login with Google (Implicit Grant)</a>
 <hr/>
+<a {{action 'authenticateWithHydra'}} class="btn btn-primary" href="#" role="button">Login with Hydra</a>
+<hr/>
 <p>or login with OAuth 2.0 <em>Resource Owner Password Credentials</em>:</p>
 <form {{action 'authenticateWithOAuth2' on='submit'}}>
   <div class="form-group">
